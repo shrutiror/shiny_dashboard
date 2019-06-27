@@ -1,0 +1,32 @@
+library(shiny)
+library(shinydashboard)
+
+shinyUI(
+    dashboardPage(
+        dashboardHeader(title = "This is the header",
+                        dropdownMenu(type="message",
+                                     messageItem(from="finance update",message="We are on threshold"))
+                        ),
+        dashboardSidebar(
+            sidebarMenu(
+                sliderInput("bins","no. of breaks",1,100,50),
+                menuItem("Dashboard",tabName = "Dashboard"),
+                menuSubItem("Dashboard Sales",tabName ="sales"),
+                menuSubItem("Dashboard Finanace",tabName ="finance"),
+                menuItem("Detailed analysis"),
+                menuItem("Raw data")
+            )
+        ),
+        dashboardBody(
+            tabItems(
+                tabItem( tabName = "Dashboard",
+                         fluidRow(
+                             box(plotOutput("histogram")))
+                ),
+                tabItem(tabName ="finance",h1("Finance dashboard")),
+                tabItem(tabName ="sales",h1("sales dashboard"))
+                
+            )
+        )
+    )
+)
