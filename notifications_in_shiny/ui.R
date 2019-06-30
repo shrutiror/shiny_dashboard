@@ -5,8 +5,23 @@ shinyUI(
     dashboardPage(
         dashboardHeader(title = "This is the header",
                         dropdownMenu(type="message",
-                                     messageItem(from="finance update",message="We are on threshold"))
-                        ),
+                                     messageItem(from="finance update",message="We are on threshold"),
+                                     messageItem(from="sales update",message="We are at 55%"))
+                        
+        ),
+        dropdownMenu(type = "notifications",
+                     notificationItem(
+                                      text = "new tabs have been added ",
+                                      icon=icon("dashboard"),
+                                      status = "success"
+                                      ),
+                     notificationItem(
+                                      text = "the server is on load ",
+                                      icon=icon("warning"),
+                                      status = "warning"
+                                      )
+                     )
+        ,
         dashboardSidebar(
             sidebarMenu(
                 sliderInput("bins","no. of breaks",1,100,50),
