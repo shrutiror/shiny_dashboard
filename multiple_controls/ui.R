@@ -25,7 +25,7 @@ shinyUI(
             tabItems(
                 tabItem( tabName = "Dashboard",
                          fluidRow(
-                             box( title=h1("Histogram of faithful"), status="primary",plotOutput("histogram")))
+                             box( title=h3("Histogram of faithful"), status="warning",solidHeader=T,plotOutput("histogram")))
                 ),
                 tabItem(tabName ="finance",h1("Finance dashboard")),
                 tabItem(tabName ="sales",h1("sales dashboard"))
