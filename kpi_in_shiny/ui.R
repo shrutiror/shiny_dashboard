@@ -9,7 +9,7 @@ shinyUI(
                                      messageItem(from="sales update",message="We are at 55%"))
                         
         ),
-         dashboardSidebar(
+        dashboardSidebar(
             sidebarMenu(
                 sidebarSearchForm("SearchText","buttonSearch","Search"),
                 menuItem("Dashboard",tabName = "Dashboard"),
@@ -23,23 +23,14 @@ shinyUI(
         dashboardBody(
             tabItems(
                 tabItem( tabName = "Dashboard",
-                        fluidRow(
-                            infoBox("Sales",value = "1000",
-                                    icon=icon("thumbs-up",lib = "font-awesome")
-                        ),
-                        infoBox("conversion %",paste0("20%"),
-                                icon=icon("warning",lib = "font-awesome")
-                        ),
-                        infoBoxOutput("Approvedsales")
-                        ),
-                          fluidRow(
-                        tabBox(
-                        tabPanel( title=h3("Histogram of faithful"),
-                        status="warning",solidHeader=T,background="aqua",plotOutput("histogram")),
-                        tabPanel( title=h3("controls for histogram"), 
-                        status="danger",solidHeader=T,background="green",
-                        sliderInput("bins","no. of breaks",1,100,50), 
-                        textInput("text","search opportunities",value="12345")))
+                         fluidRow(
+                             tabBox(
+                                 tabPanel( title=h3("Histogram of faithful"),
+                                           status="warning",solidHeader=T,background="aqua",plotOutput("histogram")),
+                                 tabPanel( title=h3("controls for histogram"), 
+                                           status="danger",solidHeader=T,background="green",
+                                           sliderInput("bins","no. of breaks",1,100,50), 
+                                           textInput("text","search opportunities",value="12345")))
                          )
                 ),
                 tabItem(tabName ="finance",h1("Finance dashboard")),
@@ -48,4 +39,4 @@ shinyUI(
             )
         )
     )
-    )
+)
